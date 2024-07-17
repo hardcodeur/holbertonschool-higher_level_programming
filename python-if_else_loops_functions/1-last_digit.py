@@ -4,7 +4,10 @@ import random
 
 number = random.randint(-10000, 10000)
 
-lastNumber = int(repr(number)[-1])
+lastNumber = abs(number) % 10
+
+if number < 0:
+    lastNumber = -lastNumber
 
 if lastNumber > 5 : 
     strIs = "is greater than 5"

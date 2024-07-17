@@ -4,5 +4,7 @@ def islower(c):
 
     ascciCode=ord(c)
 
-    return ascciCode >= 97 and ascciCode <= 122
+    rep = ascciCode >= 97 and ascciCode <= 122
+
+    return rep
 
