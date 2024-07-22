@@ -4,12 +4,8 @@
 
 class Square:
     """Class that defines a square."""
-
-
     def __init__(self, size=0):
         """Initialize the square with an option"""
-
-
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
@@ -19,14 +15,8 @@ class Square:
     @property
     def size(self):
         """ Get the size of the square."""
-        
-
         return self.__size
 
-
     def area(self):
-         """ Get the area of the square."""
-        
-
+        """ Computes the area of the square.""" 
         return self.__size ** 2
-
