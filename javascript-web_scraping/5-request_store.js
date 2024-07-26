@@ -1,14 +1,7 @@
 #!/usr/bin/node
-const request = require('request'),url = process.argv[2],id = process.argv[3];
-request(url, { json: true },function (error, response, body) {
-  const movies = body.results;
-  const characterId=id;
-  let cpt = 0;
-  movies.forEach(movie => {
-    const characters = movie.characters;
-    if(characters.includes("https://swapi-api.hbtn.io/api/people/"+characterId+"/")){
-      cpt++;
-    }
+const request = require('request'),fs = require('fs'),url = process.argv[2],filePath = process.argv[3];
+request(url,function (error, response, body) {
+  fs.writeFile(filePath, body, (err) => {
+    if (err) throw err;
   });
-  console.log(cpt)
 });
