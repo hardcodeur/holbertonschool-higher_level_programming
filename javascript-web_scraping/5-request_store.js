@@ -1,16 +1,14 @@
 #!/usr/bin/node
-const request = require('request'),fs = require('fs'),url = process.argv[2];
-request(url,{ json: true },function (error, response, body) {
-  let taskReturn = new Object();
+const request = require('request'),url = process.argv[2],id = process.argv[3];
+request(url, { json: true },function (error, response, body) {
+  const movies = body.results;
+  const characterId=id;
   let cpt = 0;
-  body.forEach(task => {
-
-    if(task.completed){
-      if (!taskReturn[task.userId]) {
-        taskReturn[task.userId] = 0;
-      }
-      taskReturn[task.userId]++;
+  movies.forEach(movie => {
+    const characters = movie.characters;
+    if(characters.includes("https://swapi-api.hbtn.io/api/people/"+characterId+"/")){
+      cpt++;
     }
   });
-  console.log(taskReturn);
+  console.log(cpt)
 });
