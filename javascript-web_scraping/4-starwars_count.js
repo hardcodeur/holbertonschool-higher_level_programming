@@ -6,7 +6,8 @@ request(url, { json: true },function (error, response, body) {
   let cpt = 0;
   movies.forEach(movie => {
     const characters = movie.characters;
-    if(film.characters.some(characterUrl => characterUrl.includes('/'+characterId+'/'))){
+    const  charactersUrl = `https://swapi-api.hbtn.io/api/people/${characterId}/`;
+    if(characters.includes(charactersUrl)){
       cpt++;
     }
   });
